@@ -34,6 +34,7 @@ public class BoundedQueueTester {
     public void testPut() {
 		BoundedQueue<Object> bq = new BoundedQueue<>(1);
 		bq.put(null);
+		assertTrue("Expected queue to be empty", bq.isEmpty());
 		bq.put("SWE419");
 		assertTrue("Expected queue to be full", bq.isFull());
 		assertTrue("Expected Queue to be repOk", bq.repOk());
@@ -74,6 +75,7 @@ public class BoundedQueueTester {
 		ls.add(4);
 		ls.add(null);
 		bq.putall(ls);
+		assertFalse("Expected queue not to be full", bq.isFull());
 		bq.put(9);
 		assertTrue("Expected queue to be full", bq.isFull());
 		assertTrue("Expected Queue to be repOk", bq.repOk());
