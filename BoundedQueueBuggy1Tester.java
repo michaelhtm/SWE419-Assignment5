@@ -15,18 +15,17 @@ public class BoundedQueueBuggy1Tester {
 	// Buggy1
     @Test 
     public void testBuggy1() {
+		// Initialize bounded queue with capacity 3
+        BoundedQueueBuggy1<Integer> buggy1Queue = new BoundedQueueBuggy1<>(3);
         
-		
-		
-		
-		
-		
-		
-		
-		
-		
+        // Add some elements to the queue
+        buggy1Queue.put(1);
+        buggy1Queue.put(2);
+        
+        // Try to add a null element, violating rep invariant
+        buggy1Queue.put(null);
 
-		//assertTrue(someQueue.repOk());
+		assertTrue(buggy1Queue.repOk());
 	}
 
 }
